@@ -1,15 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto+Slab:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto+Slab:wght@400;700&display=swap");
 
 * {
   box-sizing: border-box;
 }
 
 html {
-  font-family: 'Roboto Slab', sans-serif;
+  font-family: "Roboto Slab", sans-serif;
   line-height: 1.5;
-
   color: #ebe7ef;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -23,7 +21,7 @@ body {
       rgba(241, 210, 70, 0.98),
       rgba(250, 176, 103, 0.87)
     ),
-    url('../public/bg-pattern-dark.png');
+    url("/bg-pattern-dark.png");
   background-repeat: repeat;
   background-size: 100% 100%, 30% 30%, 100% 100%;
   min-height: 110rem;
@@ -45,7 +43,7 @@ header img {
 }
 
 h1 {
-  font-family: 'Caprasimo', cursive;
+  font-family: "Caprasimo", cursive;
   font-size: 3rem;
   margin: 0 auto 3rem auto;
   color: #3f3b00;
@@ -69,6 +67,7 @@ h1 {
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  flex-wrap: wrap; /* Ensure players wrap on small screens */
 }
 
 #players li {
@@ -156,7 +155,7 @@ ol {
   background: none;
   color: #f8c031;
   border: none;
-  font-family: 'Caprasimo', cursive;
+  font-family: "Caprasimo", cursive;
   font-size: 4rem;
   text-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
   animation: pulse-text-size 2s infinite ease-out;
@@ -169,7 +168,6 @@ ol {
   gap: 2rem;
   margin: 3rem 0;
   padding: 0;
-  flex-direction: column;
 }
 
 #game-board ol {
@@ -189,7 +187,7 @@ ol {
   color: #3f3b00;
   font-size: 5rem;
   cursor: pointer;
-  font-family: 'Caprasimo', cursive;
+  font-family: "Caprasimo", cursive;
   padding: 1rem;
 }
 
@@ -208,7 +206,7 @@ ol {
 }
 
 #game-over h2 {
-  font-family: 'Caprasimo', cursive;
+  font-family: "Caprasimo", cursive;
   font-size: 4rem;
   text-align: center;
   color: #fcd256;
@@ -268,7 +266,7 @@ ol {
 }
 
 #game-hints h2 {
-  font-family: 'Caprasimo', cursive;
+  font-family: "Caprasimo", cursive;
   font-size: 2rem;
   margin: 0;
 }
@@ -316,78 +314,74 @@ ol {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
   100% {
     transform: scale(1);
   }
 }
 
-@keyframes pulse {
-  0% {
-    border-color: #f6e35a;
-    box-shadow: 0 0 0 0 rgba(246, 227, 90, 0.4);
-  }
-  50% {
-    border-color: #f8c031;
-    box-shadow: 0 0 0 0.5rem rgba(248, 165, 49, 0);
-  }
-  100% {
-    border-color: #f6e35a;
-    box-shadow: 0 0 0 0 rgba(246, 227, 90, 0);
-  }
-}
-
-/* Fancy animation for showing the "Game Over" element */
 @keyframes pop-in {
   0% {
     transform: scale(0);
-    opacity: 0;
-  }
-  80% {
-    transform: scale(1.1);
-    opacity: 1;
   }
   100% {
     transform: scale(1);
   }
 }
-a {
-  position: relative;
-  display: inline-block;
-  margin-top: 20px;
-}
 
-a[title]:hover::after {
-  content: attr(title);
-  position: absolute;
-  top: -100%;
-  left: 0;
-}
-@media screen and (max-width: 768px) {
-  #game-board button{
-    width: 5.6rem;
-    height: 7rem;
+@media (max-width: 600px) {
+  html {
+    font-size: 80%; /* Scale down font size for readability */
   }
-  #game-board button{
+
+  header p {
+    font-size: 1.5rem;
+  }
+
+  header img {
+    width: 6rem; /* Reduce logo size */
+  }
+
+  h1 {
+    font-size: 2rem; /* Reduce heading size */
+  }
+
+  #game-container {
+    padding: 1rem; /* Reduce padding */
+  }
+
+  #players button {
+    font-size: 0.8rem; /* Adjust button font size */
+  }
+
+  #game-board button {
+    width: 6rem; /* Adjust button size */
+    height: 6rem;
+    font-size: 4rem;
+  }
+
+  #game-over h2 {
     font-size: 3rem;
-    height: 5rem;
   }
-  #players{
-    width: 350px;
+
+  #game-over p {
+    font-size: 1.5rem;
   }
-  #players button{
-    width: 2rem;
+
+  #game-over button {
+    font-size: 1.2rem;
   }
-  .player{
-    border: none;
-    padding: 0;
+
+  #log {
+    max-width: 18rem;
   }
-  .player input {
-    width: 5rem;
-    border: none;
-    animation: pulse-text 2s infinite;
-    background-color: #46432f;
-    text-align: center;
+
+  #log li {
+    margin: 0.5rem; 
+  }
+
+  #game-hints h2 {
+    font-size: 1.5rem;
   }
 }
