@@ -32,6 +32,10 @@ body {
 header {
   text-align: center;
 }
+header p {
+  color: maroon;
+  font-size: 2rem;
+}
 
 header img {
   width: 8rem;
